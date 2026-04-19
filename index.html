@@ -1,0 +1,74 @@
+<html>
+<meta charset="UTF-8">
+<head>
+  <title>WatchLister</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+    <section id="pop-up-screen" class="screen active">
+      <div class="card center">
+        <h1>WatchLister</h1>
+        <p>The app for everything related to movies!</p>
+        <button id="enter-btn">Enter</button>
+      </div>
+    </section>
+
+    <section id="login-screen" class="screen">
+      <div class="card">
+        <h2>Login</h2>
+        <input id="login-email" type="email" placeholder="Enter your email" />
+        <input id="login-password" type="password" placeholder="Enter your password" />
+        <button id="login-btn">Log in</button>
+        <button id="goto-signup-btn" class="secondary">Sign up</button>
+      </div>
+    </section>
+
+    <section id="signup-screen" class="screen">
+      <div class="card">
+        <h2>Sign Up</h2>
+        <input id="signup-name" type="text" placeholder="Full name" />
+        <input id="signup-email" type="email" placeholder="Email" />
+        <input id="signup-password" type="password" placeholder="Password" />
+        <button id="signup-btn">Create account</button>
+        <button id="back-login-btn" class="secondary">Back to login</button>
+      </div>
+    </section>
+
+    <section id="main-screen" class="screen">
+      <header class="topbar">
+        <h1>WatchLister</h1>
+        <nav>
+          <button class="tab-btn" data-tab="movies-tab">Movies</button>
+          <button class="tab-btn" data-tab="favorites-tab">Favorites</button>
+          <button class="tab-btn" data-tab="profile-tab">Profile</button>
+        </nav>
+      </header>
+
+      <main>
+        <section id="movies-tab" class="tab active"></section>
+        <section id="favorites-tab" class="tab"></section>
+
+        <section id="profile-tab" class="tab">
+          <div class="card">
+            <h2>Profile</h2>
+            <input id="profile-name" type="text" placeholder="Your name" />
+            <textarea id="profile-bio" placeholder="Your bio"></textarea>
+            <button id="save-profile-btn">Save changes</button>
+            <button id="logout-btn" class="secondary">Sign out</button>
+          </div>
+        </section>
+      </main>
+    </section>
+  </div>
+
+<script src="data.js"></script>
+<script src="api.js"></script>
+<script src="favorites.js"></script>
+<script src="ratings.js"></script>
+<script src="profile.js"></script>
+<script src="ui.js"></script>
+<script src="auth.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
