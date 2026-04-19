@@ -1,0 +1,24 @@
+CREATE DATABASE IF NOT EXISTS watchlister CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE watchlister;
+
+CREATE TABLE IF NOT EXISTS users (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(100) NOT NULL,
+  email VARCHAR(150) NOT NULL UNIQUE,
+  password VARCHAR(255) NOT NULL,
+  bio TEXT DEFAULT '',
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS favorites (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  user_id INT NOT NULL,
+  movie_title VARCHAR(255) NOT NULL,
+  movie_director VARCHAR(255) DEFAULT '',
+  movie_image TEXT,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  CONSTRAINT fk_favorites_user
+    FOREIGN KEY (user_id) REFERENCES users(id)
+    ON DELETE CASCADE,
+  CONSTRAINT unique_user_movie UNIQUE (user_id, movie_title)
+);
