@@ -1,19 +1,11 @@
 <?php
-// ==========================
-// BASIC ENV DETECTION
-// ==========================
 $isLocal = in_array($_SERVER['REMOTE_ADDR'], ['127.0.0.1', '::1'], true);
 
-// ==========================
-// QUERY HANDLING (SAFE)
-// ==========================
 if (isset($_GET['q'])) {
     $query = $_GET['q'];
 
-    // Allow-list approach
     if ($query === 'info') {
 
-        // phpinfo allowed ONLY on localhost
         if ($isLocal) {
             phpinfo();
             exit;
@@ -23,14 +15,12 @@ if (isset($_GET['q'])) {
         exit('Forbidden! phpinfo allowed ONLY on localhost');
     }
 
-    // Unknown query
     http_response_code(404);
     exit('Invalid query parameter.');
 }
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
